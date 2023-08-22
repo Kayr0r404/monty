@@ -11,6 +11,9 @@ int main()
     _pop(&head);
     _print(head);
     printf("---------------------\n");
+    _pop(&head);
+    _print(head);
+    printf("---------------------\n");
     _pint(head);
     printf("---------------------\n");
     _swap(&head);
