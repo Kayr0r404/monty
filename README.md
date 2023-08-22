@@ -1,74 +1,84 @@
-0x19. C - Stacks, Queues - LIFO, FIFO  
+# 0x19. C - Stacks, Queues - LIFO, FIFO
+**About:** In this project, we created a simple interpreter for Monty ByteCodes. The interpreter reads a bytecode file and executes the bytecode commands.
+### The Monty language
+Monty 0.98 is a scripting language that is first compiled into Monty byte codes (Just like Python). It relies on a unique stack, with specific instructions to manipulate it. 
 
-General  
-What do LIFO and FIFO mean  
-What is a stack, and when to use it  
-What is a queue, and when to use it  
-What are the common implementations of stacks and queues  
-What are the most common use cases of stacks and queues  
-What is the proper way to use global variables  
+### Monty byte code files
+Files containing Monty byte codes usually have the .m extension. Most of the industry uses this standard but it is not required by the specification of the language. There is not more than one instruction per line. There can be any number of spaces before or after the opcode and its argument: [examples](#Examples)
 
-Requirements  
-General  
-Allowed editors: vi, vim, emacs  
-All your files will be compiled on Ubuntu 20.04 LTS using gcc, using the options -Wall -Werror -Wextra -pedantic -std=c89  
-All your files should end with a new line  
-A README.md file, at the root of the folder of the project is mandatory  
-Your code should use the Betty style. It will be checked using betty-style.pl and betty-doc.pl  
-You allowed to use a maximum of one global variable  
-No more than 5 functions per file  
-You are allowed to use the C standard library  
-The prototypes of all your functions should be included in your header file called monty.h  
-Don’t forget to push your header file  
-All your header files should be include guarded  
-You are expected to do the tasks in the order shown in the project  
+## Objectives:
+* To know what LIFO and FIFO mean
+* To know what a stack is, and when to use it
+* To know what a queue is, and when to use it
+* To know the common implementations of stacks and queues
+* To know the most common use cases of stacks and queues
+* To know the proper way to use global variables
 
+### Resource:
+* [Difference between Stack and Queue Data Structures](https://www.geeksforgeeks.org/difference-between-stack-and-queue-data-structures/) || 
 
-Data structures  
-Please use the following data structures for this project. Don’t forget to include them in your header file.  
+## General Requirements
+* Allowed editors: **vi**, **vim**, **emacs**
+* All files is compiled on **Ubuntu 20.04 LTS using gcc**, using the options **-Wall -Werror -Wextra -pedantic -std=gnu89**
+* All files ends with a new line
+* There is **README.md** file at the root of the **alx-low_level_programming**
+* Maximum of one global variable is allowed
+* No more than 5 functions per file
+* The C standard library is allowed
+* The prototypes of all the functions were included in the header file called monty.h
+* All the header files are include guarded
 
-/**  
- * struct stack_s - doubly linked list representation of a stack (or queue)  
- * @n: integer  
- * @prev: points to the previous element of the stack (or queue)  
- * @next: points to the next element of the stack (or queue)  
+## Instruction given:
+* To use the following data structures for this project, and to also include them in the header file.
+```
+/**
+ * struct stack_s - doubly linked list representation of a stack (or queue)
+ * @n: integer
+ * @prev: points to the previous element of the stack (or queue)
+ * @next: points to the next element of the stack (or queue)
  *
- * Description: doubly linked list node structure  
- * for stack, queues, LIFO, FIFO  
- */  
-typedef struct stack_s  
-{  
-        int n;  
-        struct stack_s *prev;  
-        struct stack_s *next;  
-} stack_t;  
-/**  
- * struct instruction_s - opcode and its function  
- * @opcode: the opcode  
- * @f: function to handle the opcode  
- *  
- * Description: opcode and its function  
- * for stack, queues, LIFO, FIFO  
- */  
-typedef struct instruction_s  
-{  
-        char *opcode;  
-        void (*f)(stack_t **stack, unsigned int line_number);  
-} instruction_t;  
+ * Description: doubly linked list node structure
+ * for stack, queues, LIFO, FIFO
+ */
+typedef struct stack_s
+{
+        int n;
+        struct stack_s *prev;
+        struct stack_s *next;
+} stack_t;
+```
+```
+/**
+ * struct instruction_s - opcode and its function
+ * @opcode: the opcode
+ * @f: function to handle the opcode
+ *
+ * Description: opcode and its function
+ * for stack, queues, LIFO, FIFO
+ */
+typedef struct instruction_s
+{
+        char *opcode;
+        void (*f)(stack_t **stack, unsigned int line_number);
+} instruction_t;
+```
 
-Compilation & Output  
-    The code will be compiled this way:  
-    $ gcc -Wall -Werror -Wextra -pedantic -std=c89 *.c -o monty  
-    Any output will be printed on stdout  
-    Any error message will be printed on stderr  
+## List of files/Descriptions:
+| S/N   |   Files      		|      Description     |
+|:-----:|--------------------:|--------------------|
+|  1.   |                      |              |
+|  2.   |		|			|
+|  3.   |		|		|
+|  4.   |		|			|
+|  5.   |		|		|
 
-    The Monty language  
-Monty 0.98 is a scripting language that is first compiled into Monty byte codes (Just like Python). It relies on a unique stack, with specific instructions to manipulate it. The goal of this project is to create an interpreter for Monty ByteCodes files.  
+## Compilation & Output
+* These codes were compiled using: ```gcc -Wall -Werror -Wextra -pedantic -std=c89 *.c -o monty```
+* Any output must be printed on ```stdout```
+* Any error message must be printed on ```stderr```
 
-Monty byte code files  
-
-Files containing Monty byte codes usually have the .m extension. Most of the industry uses this standard but it is not required by the specification of the language. There is not more than one instruction per line. There can be any number of spaces before or after the opcode and its argument:  
-
+## Examples
+```
 julien@ubuntu:~/monty$ cat -e bytecodes/000.m
 push 0$
 push 1$
@@ -80,8 +90,9 @@ push 4$
       push    6        $
 pall$
 julien@ubuntu:~/monty$
+```
 Monty byte code files can contain blank lines (empty or made of spaces only, and any additional text after the opcode or its required argument is not taken into account:
-
+```
 julien@ubuntu:~/monty$ cat -e bytecodes/001.m
 push 0 Push 0 onto the stack$
 push 1 Push 1 onto the stack$
@@ -99,3 +110,12 @@ $
 $
 pall This is the end of our program. Monty is awesome!$
 julien@ubuntu:~/monty$
+```
+* Some examples of using monty and its console output.
+
+|                        Example #1                      |                    Example #2                   |                      Example #3                           |
+|:-------------------------------------------------------|:------------------------------------------------|:----------------------------------------------------------|
+| ~/monty$ `cat -e bytecodes/00.m` <br> push 1$ <br> push 2$ <br> push 3$ <br> pall$ <br> ~/monty$ `./monty bytecodes/00.m` <br> 3 <br> 2 <br> 1  | ~/monty$ `cat bytecodes/07.m`  <br> push 1 <br> push 2 <br> push 3 <br> pall <br> pop <br> pall <br> pop <br> pall <br> pop <br> pall <br>  ~/monty$ `./monty bytecodes/07.m`  <br> 3 <br> 2 <br> 1 <br> 2 <br> 1 <br> 1 | ~/monty$ `cat bytecodes/09.m` <br> push 1 <br> push 2 <br> push 3 <br> pall <br> swap <br> pall <br> ~/monty$ `./monty bytecodes/09.m` <br> 3 <br> 2 <br> 1 <br> 2 <br> 3 <br> 1 |
+
+## Author
+[Mahlare Karabo](https://github.com/Kayr0r404/monty/)
