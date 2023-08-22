@@ -12,5 +12,10 @@ int main()
     _print(head);
     printf("---------------------\n");
     _pint(head);
+    printf("---------------------\n");
+    _swap(&head);
+    _print(head);
+    printf("---------------------\n");
+    printf("sum %d\n", _add(head));
     return 0;
 }

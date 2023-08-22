@@ -38,5 +38,7 @@ void _pint(stack_t *head);
 stack_t *_push( stack_t **head, int data);
 stack_t *_push_end(stack_t **head, const int n);
 stack_t *_pop(stack_t **head);
+stack_t *_swap(stack_t **head);
+int _add(stack_t *head);
 
 #endif /*MONTY_H*/
