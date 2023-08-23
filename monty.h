@@ -1,9 +1,13 @@
 #ifndef MONTY_H
 #define MONTY_H
 
-#include <stdlib.h>
 #include <stdio.h>
-#include <stdbool.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <string.h>
+#include <ctype.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -33,12 +37,22 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-size_t _print(const  stack_t *h);
-void _pint(stack_t *head);
-stack_t *_push( stack_t **head, int data);
+typedef struct container_s
+{
+	char *opcode;
+	FILE *file;
+	int data;
+} container_t;
+extern container_t container_arr;
+
+void _print(const  stack_t *h, unsigned int line_number);
+void _pint(stack_t *head, unsigned int line_number);
+stack_t *_push(stack_t **head, unsigned int line_number);
 stack_t *_push_end(stack_t **head, const int n);
-stack_t *_pop(stack_t **head);
-stack_t *_swap(stack_t **head);
-int _add(stack_t *head);
+stack_t *_pop(stack_t **head, unsigned int line_number);
+stack_t *_swap(stack_t **head, unsigned int line_number);
+int _add(stack_t *head, unsigned int line_number);
+size_t list_len(const stack_t *h);
+ssize_t execute(stack_t *head, unsigned int line_umber, FILE *file);
 
 #endif /*MONTY_H*/

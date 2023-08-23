@@ -1,18 +1,21 @@
 #include "monty.h"
 /**
- * print_dlistint - Write a function that prints all the
+ * _print - Write a function that prints all the
  * elements of a  stack_t list.
  * @h: input double linked list
  * Return: the number of nodes
 */
-size_t _print(const  stack_t *h)
+void _print(const  stack_t *h, unsigned int line_number)
 {
-	size_t j = 0;
+	if  (h == NULL)
+	{
+		fprintf(stderr, "L%i: can't pall, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 
 	while (h != NULL)
 	{
 		printf("%d\n", h->n);
-		h = h->next, j++;
+		h = h->next;
 	}
-	return (j);
 }

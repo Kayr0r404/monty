@@ -4,7 +4,7 @@
  * @head: input list
  * Return: current node
  */
-stack_t *_swap(stack_t **head)
+stack_t *_swap(stack_t **head, unsigned int line_number)
 {
     stack_t *curr;
     int tmp;
@@ -12,7 +12,7 @@ stack_t *_swap(stack_t **head)
         return (NULL);
     if (list_len(*head) < 2)
     {
-        printf("L<line_number>: can't swap, stack too short");
+        printf("L%i: can't swap, stack too short", line_number);
         return (NULL);
     }
 
