@@ -11,7 +11,7 @@ void _swap(stack_t **head, unsigned int line_number)
 
 	if (list_len(*head) < 2 || *head == NULL)
 	{
-		printf("L%i: can't swap, stack too short", line_number);
+		fprintf(stderr, "L%i: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
@@ -19,5 +19,5 @@ void _swap(stack_t **head, unsigned int line_number)
 	tmp = curr->n;
 	curr->n = curr->next->n;
 	curr->next->n = tmp;
-	(*head) = curr;
+	*head = curr;
 }
