@@ -26,7 +26,6 @@ void _push(stack_t **head, unsigned int line_number)
 	}
 	else if (is_number(container.data))
 	{
-		printf("%s\n", container.data);
 			new_node->n = atoi(container.data);
 
 		new_node->prev = NULL;
