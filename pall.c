@@ -5,7 +5,7 @@
  * @h: input double linked list
  * @line_number: line number on monty file
 */
-void _print(stack_t **h, unsigned int line_number)
+void _pall(stack_t **h, unsigned int line_number)
 {
 	stack_t *curr;
 

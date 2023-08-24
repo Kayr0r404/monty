@@ -51,7 +51,7 @@ typedef struct container_s
 } container_t;
 extern container_t container;
 
-void _print(stack_t **h, unsigned int line_number);
+void _pall(stack_t **h, unsigned int line_number);
 void _pint(stack_t **head, unsigned int line_number);
 void _push(stack_t **head, unsigned int line_number);
 stack_t *push(stack_t **head, int data);
@@ -61,7 +61,7 @@ void _swap(stack_t **head, unsigned int line_number);
 void _add(stack_t **head, unsigned int line_number);
 size_t list_len(const stack_t *h);
 void _nop(stack_t **head, unsigned int line_number);
-int execute(stack_t **stack, unsigned int line_number);
+int execute(stack_t **stack, unsigned int line_number, char *line);
 
 
 void clean_up(stack_t **head);
