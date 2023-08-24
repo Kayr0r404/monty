@@ -9,6 +9,9 @@ void _print(stack_t **h, unsigned int line_number)
 {
 	stack_t *curr;
 
+	if (*h == NULL || !h)
+		return;
+
 	curr = *h;
 	while (curr != NULL)
 	{
