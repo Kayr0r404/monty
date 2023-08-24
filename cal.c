@@ -26,7 +26,7 @@ void _add(stack_t **head, unsigned int line_number)
 	free(h);
 }
 /**
- * _sub - adds the top two elements of the stack.
+ * _sub - subtract the top two elements of the stack.
  * @head: input list
  * @line_number: line number on monty file
  *
@@ -53,7 +53,7 @@ void _sub(stack_t **head, unsigned int line_number)
 }
 
 /**
- * _div - adds the top two elements of the stack.
+ * _div - divide the top elemt with the botom elements of the stack.
  * @head: input list
  * @line_number: line number on monty file
  *
@@ -80,13 +80,13 @@ void _div(stack_t **head, unsigned int line_number)
 		clean_up(head);
 		exit(EXIT_FAILURE);
 	}
-	h->next->n = h->n - h->next->n;
+	h->next->n = h->n / h->next->n;
 	*head = h->next;
 	free(h);
 }
 
 /**
- * _mul - adds the top two elements of the stack.
+ * _mul - multiples the top two elements of the stack.
  * @head: input list
  * @line_number: line number on monty file
  *
@@ -113,7 +113,7 @@ void _mul(stack_t **head, unsigned int line_number)
 }
 
 /**
- * _mod - adds the top two elements of the stack.
+ * _mod - divide the top with the bottom element of the stack.
  * @head: input list
  * @line_number: line number on monty file
  *
@@ -140,7 +140,7 @@ void _mod(stack_t **head, unsigned int line_number)
 		clean_up(head);
 		exit(EXIT_FAILURE);
 	}
-	h->next->n = h->n - h->next->n;
+	h->next->n = h->n % h->next->n;
 	*head = h->next;
 	free(h);
 }
