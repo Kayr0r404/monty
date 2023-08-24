@@ -64,10 +64,10 @@ void _nop(stack_t **head, unsigned int line_number);
 int execute(stack_t **stack, unsigned int line_number, char *line);
 
 
-void clean_up(stack_t **head);
-void add_at_tail(stack_t **head, const int data);
-void add_at_head(stack_t **head, const int data);
 void free_stack(stack_t *head);
+void addnode(stack_t **head, int n);
+void f_queue(stack_t **head, unsigned int counter);
+void addqueue(stack_t **head, int n);
 bool is_number(const char *str);
 
 #endif /*MONTY_H*/

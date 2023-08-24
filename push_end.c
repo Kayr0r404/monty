@@ -33,21 +33,7 @@ void _push_end(stack_t **head, const int n)
 	}
 }
 
-/**
-* free_stack - frees a list
-* @head: head pointer
-*/
-void free_stack(stack_t *head)
-{
-	stack_t *current = head;
 
-	while (head)
-	{
-		current = head->next;
-		free(head);
-		head = current;
-	}
-}
 
 /**
 * add_at_head - adds node at the beginning of the list

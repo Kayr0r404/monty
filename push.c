@@ -5,40 +5,35 @@
  * @head: input doubly monty
  * @line_number: line number on monty file
 */
-void _push(stack_t **head, unsigned int line_number)
+#include "monty.h"
+
+void _push(stack_t **head, unsigned int counter)
 {
-	stack_t *new_node;
+	int n, j = 0, flag = 0;
 
-	/* Create a new node*/
-	new_node = (stack_t *)malloc(sizeof(stack_t));
-
-	if (new_node == NULL)
+	if (container.data)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
-
-	/* Initialize the new node*/
-	else if (is_number(container.data))
-	{
-		new_node->n = atoi(container.data);
-
-		new_node->prev = NULL;
-		new_node->next = *head;
-
-		/* Update the previous node of the current head if it exists*/
-		if (*head != NULL)
-			(*head)->prev = new_node;
-
-		/* Update the head to point to the new node*/
-		*head = new_node;
-		(void)line_number;
-	}
+		if (container.data[0] == '-')
+			j++;
+		for (; container.data[j] != '\0'; j++)
+		{
+			if (container.data[j] > 57 || container.data[j] < 48)
+				flag = 1; }
+		if (flag == 1)
+		{ fprintf(stderr, "L%d: usage: push integer\n", counter);
+			fclose(container.file);
+			free(container.line);
+			free_stack(*head);
+			exit(EXIT_FAILURE); }}
 	else
-	{
-		fprintf(stderr, "L%i: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+	{ fprintf(stderr, "L%d: usage: push integer\n", counter);
+		fclose(container.file);
+		free(container.line);
+		free_stack(*head);
+		exit(EXIT_FAILURE); }
+	n = atoi(container.data);
+	
+		addnode(head, n);
 }
 
 /**
@@ -89,4 +84,89 @@ bool is_number(const char *str)
 	/* Return true only if we reached the end of str n encountered digits*/
 	return (str[i] == '\0' && has_digits);
 }
+/**
+* free_stack - frees a doubly linked list
+* @head: head of the stack
+*/
+void free_stack(stack_t *head)
+{
+	stack_t *aux;
 
+	aux = head;
+	while (head)
+	{
+		aux = head->next;
+		free(head);
+		head = aux;
+	}
+}
+/**
+ * addnode - add node to the head stack
+ * @head: head of the stack
+ * @n: new_value
+ * Return: no return
+*/
+void addnode(stack_t **head, int n)
+{
+
+	stack_t *new_node, *aux;
+
+	aux = *head;
+	new_node = malloc(sizeof(stack_t));
+	if (new_node == NULL)
+	{ printf("Error\n");
+		exit(0); }
+	if (aux)
+		aux->prev = new_node;
+	new_node->n = n;
+	new_node->next = *head;
+	new_node->prev = NULL;
+	*head = new_node;
+}
+/**
+ * f_queue - prints the top
+ * @head: stack head
+ * @counter: line_number
+ * Return: no return
+*/
+void f_queue(stack_t **head, unsigned int counter)
+{
+	(void)head;
+	(void)counter;
+
+}
+
+/**
+ * addqueue - add node to the tail stack
+ * @n: new_value
+ * @head: head of the stack
+ * Return: no return
+*/
+void addqueue(stack_t **head, int n)
+{
+	stack_t *new_node, *aux;
+
+	aux = *head;
+	new_node = malloc(sizeof(stack_t));
+	if (new_node == NULL)
+	{
+		printf("Error\n");
+	}
+	new_node->n = n;
+	new_node->next = NULL;
+	if (aux)
+	{
+		while (aux->next)
+			aux = aux->next;
+	}
+	if (!aux)
+	{
+		*head = new_node;
+		new_node->prev = NULL;
+	}
+	else
+	{
+		aux->next = new_node;
+		new_node->prev = aux;
+	}
+}
