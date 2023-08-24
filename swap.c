@@ -20,5 +20,4 @@ void _swap(stack_t **head, unsigned int line_number)
 	curr->n = curr->next->n;
 	curr->next->n = tmp;
 	(*head) = curr;
-	free(curr);
 }
