@@ -33,9 +33,6 @@ int main(int argc, char *argv[])
 		execute(&head, counter);
 		counter++;
 	}
-	fclose(container.file);
-	free(container.line);
-	free(container.data);
 	(void)head;
 	return (0);
 }

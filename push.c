@@ -33,7 +33,6 @@ void _push(stack_t **head, unsigned int line_number)
 		/* Update the head to point to the new node*/
 		*head = new_node;
 		(void)line_number;
-		free(new_node);
 	}
 	else
 	{
