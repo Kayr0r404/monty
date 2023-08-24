@@ -4,10 +4,9 @@
   * @head: input list
   * Return: current node
  */
-stack_t *_pop(stack_t **head, unsigned int line_number)
+void _pop(stack_t **head, unsigned int line_number)
 {
 	stack_t *curr;
-
 
 	if (head == NULL)
 	{
@@ -17,6 +16,5 @@ stack_t *_pop(stack_t **head, unsigned int line_number)
 	curr = (*head)->next;
 	curr->prev = NULL;
 	free(*head);
-
-	return (*head = curr);
+	*head = curr;
 }

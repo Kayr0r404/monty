@@ -1,7 +1,5 @@
 #include "monty.h"
-
-container_t container_arr = {NULL, NULL, 0};
-
+container_t container = {NULL, NULL, 1};
 /**
  * main - main event
  * @argc: number of arguments
@@ -10,10 +8,8 @@ container_t container_arr = {NULL, NULL, 0};
  */
 int main(int argc, char *argv[])
 {
-	char line[1024];
+	char line[1024], *tmp;
     stack_t *head = NULL;
-    unsigned int counter = 1;
-    printf("here");
 
 	if (argc != 2)
 	{
@@ -21,31 +17,28 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	container_arr.file = fopen(argv[1], "r");
-	if (container_arr.file == NULL)
+	container.file = fopen(argv[1], "r");
+	if (container.file == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 
-	while (fgets(line, sizeof(line), container_arr.file) != NULL)
+	while (fgets(line, sizeof(line), container.file) != NULL)
 	{
-		container_arr.opcode = strtok(line, " \t\n");
-		if (container_arr.opcode == NULL)
-			continue;
-		if (strcmp(container_arr.opcode, "push") == 0)
+		container.line = strtok(line, " \n\t");
+		if ((tmp = strtok(NULL, " \n\t")) != NULL)
 		{
-            if (atoi(strtok(NULL, " \t\n")) == 0)
-            {
-                fprintf(stderr, "L%i: usage: push integer\n", counter);
-                exit(EXIT_FAILURE); }
-			container_arr.data = atoi(strtok(NULL, " \t\n"));
-			_push(&head, counter);
+			container.data = atoi(tmp);
 		}
-		counter++;
+		
+		
+		/*execute(char *content, stack_t **stack, unsigned int counter, FILE *file)*/
+		execute(&head);
 	}
-	_print(head, counter);
 
-	fclose(container_arr.file);
+	fclose(container.file);
 	exit(EXIT_SUCCESS);
+	(void)tmp;
+	(void)head;
 }

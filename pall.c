@@ -5,17 +5,20 @@
  * @h: input double linked list
  * Return: the number of nodes
 */
-void _print(const  stack_t *h, unsigned int line_number)
+void _print(stack_t **h, unsigned int line_number)
 {
+	stack_t *curr;
+
 	if  (h == NULL)
 	{
 		fprintf(stderr, "L%i: can't pall, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	while (h != NULL)
+	curr = *h;
+	while (curr != NULL)
 	{
-		printf("%d\n", h->n);
-		h = h->next;
+		printf("%i\n", curr->n);
+		curr = curr->next;
 	}
 }

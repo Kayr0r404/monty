@@ -39,20 +39,22 @@ typedef struct instruction_s
 
 typedef struct container_s
 {
-	char *opcode;
+	char *line;
 	FILE *file;
 	int data;
 } container_t;
-extern container_t container_arr;
+extern container_t container;
 
-void _print(const  stack_t *h, unsigned int line_number);
-void _pint(stack_t *head, unsigned int line_number);
-stack_t *_push(stack_t **head, unsigned int line_number);
-stack_t *_push_end(stack_t **head, const int n);
-stack_t *_pop(stack_t **head, unsigned int line_number);
-stack_t *_swap(stack_t **head, unsigned int line_number);
-int _add(stack_t *head, unsigned int line_number);
+void _print(stack_t **h, unsigned int line_number);
+void _pint(stack_t **head, unsigned int line_number);
+void _push(stack_t **head, unsigned int line_number);
+stack_t *push(stack_t **head, int data);
+void _push_end(stack_t **head, const int n);
+void _pop(stack_t **head, unsigned int line_number);
+void _swap(stack_t **head, unsigned int line_number);
+void _add(stack_t **head, unsigned int line_number);
 size_t list_len(const stack_t *h);
-ssize_t execute(stack_t *head, unsigned int line_umber, FILE *file);
+int execute(stack_t **stack);
+int is_number(char *str);
 
 #endif /*MONTY_H*/

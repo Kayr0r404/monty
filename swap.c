@@ -4,22 +4,23 @@
  * @head: input list
  * Return: current node
  */
-stack_t *_swap(stack_t **head, unsigned int line_number)
+void _swap(stack_t **head, unsigned int line_number)
 {
     stack_t *curr;
     int tmp;
+
     if (head == NULL)
-        return (NULL);
+        exit(EXIT_FAILURE);
     if (list_len(*head) < 2)
     {
         printf("L%i: can't swap, stack too short", line_number);
-        return (NULL);
+        exit(EXIT_FAILURE);
     }
 
     curr = *head;
     tmp = curr->n;
     curr->n = curr->next->n;
     curr->next->n = tmp;
-
-    return (*head = curr);
+    (*head) = curr;
+    free(curr);
 }

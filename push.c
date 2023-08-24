@@ -7,23 +7,22 @@
  * Prototype:  stack_t *add_dnodeint( stack_t **head, const int n)
  * Return: the address of the new element, or NULL if it failed
 */
- stack_t *_push(stack_t **head, unsigned int line_number)
+ void _push(stack_t **head, unsigned int line_number)
 {
-	int n;
 	stack_t *new_node;
 
-	n = container_arr.data;
 	/* Create a new node*/
 	new_node = ( stack_t *)malloc(sizeof( stack_t));
 
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Memory allocation failed!\n");
-		return (NULL);
+		exit(EXIT_FAILURE);
 	}
 
 	/* Initialize the new node*/
-	new_node->n = n;
+	new_node->n = container.data;
+
 	new_node->prev = NULL;
 	new_node->next = *head;
 
@@ -35,5 +34,4 @@
 	*head = new_node;
 	(void)line_number;
 
-	return (new_node);
 }
