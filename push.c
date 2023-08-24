@@ -1,18 +1,16 @@
 #include "monty.h"
 /**
- * add_dnodeint - Write a function that adds a new node
+ * _push - Write a function that adds a new node
  * at the beginning of a  stack_t list.
  * @head: input doubly monty
- * @data: value to be added
- * Prototype:  stack_t *add_dnodeint( stack_t **head, const int n)
- * Return: the address of the new element, or NULL if it failed
+ * @line_number: line number on monty file
 */
- void _push(stack_t **head, unsigned int line_number)
+void _push(stack_t **head, unsigned int line_number)
 {
 	stack_t *new_node;
 
 	/* Create a new node*/
-	new_node = ( stack_t *)malloc(sizeof( stack_t));
+	new_node = (stack_t *)malloc(sizeof(stack_t));
 
 	if (new_node == NULL)
 	{

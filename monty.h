@@ -36,7 +36,12 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-
+/**
+ * struct container_s - global
+ * @line: opcode
+ * @file: monty file
+ * @data: input int
+*/
 typedef struct container_s
 {
 	char *line;

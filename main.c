@@ -9,7 +9,7 @@ container_t container = {NULL, NULL, 1};
 int main(int argc, char *argv[])
 {
 	char line[1024], *tmp;
-    stack_t *head = NULL;
+	stack_t *head = NULL;
 
 	if (argc != 2)
 	{
@@ -27,12 +27,12 @@ int main(int argc, char *argv[])
 	while (fgets(line, sizeof(line), container.file) != NULL)
 	{
 		container.line = strtok(line, " \n\t");
-		if ((tmp = strtok(NULL, " \n\t")) != NULL)
+		tmp = strtok(NULL, " \n\t");
+
+		if (tmp != NULL)
 		{
 			container.data = atoi(tmp);
 		}
-		
-		
 		/*execute(char *content, stack_t **stack, unsigned int counter, FILE *file)*/
 		execute(&head);
 	}

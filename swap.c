@@ -2,25 +2,26 @@
 /**
  * _swap - swaps the top two elements of the stack
  * @head: input list
- * Return: current node
+ * @line_number: line number on monty file
  */
 void _swap(stack_t **head, unsigned int line_number)
 {
-    stack_t *curr;
-    int tmp;
+	stack_t *curr;
+	int tmp;
 
-    if (head == NULL)
-        exit(EXIT_FAILURE);
-    if (list_len(*head) < 2)
-    {
-        printf("L%i: can't swap, stack too short", line_number);
-        exit(EXIT_FAILURE);
-    }
+	if (head == NULL)
+		exit(EXIT_FAILURE);
 
-    curr = *head;
-    tmp = curr->n;
-    curr->n = curr->next->n;
-    curr->next->n = tmp;
-    (*head) = curr;
-    free(curr);
+	if (list_len(*head) < 2)
+	{
+		printf("L%i: can't swap, stack too short", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	curr = *head;
+	tmp = curr->n;
+	curr->n = curr->next->n;
+	curr->next->n = tmp;
+	(*head) = curr;
+	free(curr);
 }

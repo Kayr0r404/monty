@@ -2,9 +2,6 @@
 /**
 * execute - executes the opcode
 * @stack: head linked list - stack
-* @counter: line_counter
-* @file: poiner to monty file
-* @content: line content
 * Return: no return
 */
 int execute(stack_t **stack)
@@ -18,6 +15,7 @@ int execute(stack_t **stack)
 				};
 	unsigned int i = 0, counter = 1;
 	char *op = container.line;
+
 	if (op && op[0] == '#')
 		return (0);
 	while (opst[i].opcode && op)

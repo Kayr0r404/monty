@@ -2,8 +2,8 @@
 /**
  * _add - adds the top two elements of the stack.
  * @head: input list
- * @line_number: kj
- * Return: sum if success else 0
+ * @line_number: line number on monty file
+ *
  */
 void _add(stack_t **head, unsigned int line_number)
 {
@@ -13,7 +13,7 @@ void _add(stack_t **head, unsigned int line_number)
 		fprintf(stderr, "L%i: can't add, stack too short", line_number);
 		exit(EXIT_FAILURE);
 	}
-	
+
 	(*head)->next->n = (*head)->n + (*head)->next->n;
 	free(head);
 	*head = (*head)->next;

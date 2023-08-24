@@ -2,7 +2,7 @@
 /**
   * _pop -  removes the top element from the stack
   * @head: input list
-  * Return: current node
+  * @line_number: line number on monty file
  */
 void _pop(stack_t **head, unsigned int line_number)
 {
