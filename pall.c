@@ -9,12 +9,6 @@ void _print(stack_t **h, unsigned int line_number)
 {
 	stack_t *curr;
 
-	if  (*h == NULL)
-	{
-		fprintf(stderr, "L%i: can't pall, stack empty\n", line_number);
-		exit(EXIT_FAILURE);
-	}
-
 	curr = *h;
 	while (curr != NULL)
 	{
