@@ -8,14 +8,13 @@
 void _push(stack_t **head, unsigned int line_number)
 {
 	stack_t *new_node;
-	if (!head || !(*head))
-		return;
+
 	/* Create a new node*/
 	new_node = (stack_t *)malloc(sizeof(stack_t));
 
 	if (new_node == NULL)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
+		fprintf(stderr, "Memory allocation failed!\n");
 		exit(EXIT_FAILURE);
 	}
 
