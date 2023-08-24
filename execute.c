@@ -2,6 +2,7 @@
 /**
 * execute - executes the opcode
 * @stack: head linked list - stack
+* @line_number: is the line number in the file
 * Return: no return
 */
 int execute(stack_t **stack, unsigned int line_number)

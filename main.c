@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 	while (fgets(line, sizeof(line), container.file) != NULL)
 	{
 		container.line = strtok(line, " \n\t");
-		container.data = strtok(NULL, " \n\t");;
+		container.data = strtok(NULL, " \n\t");
 		/*execute(char *content, stack_t **stack, unsigned int counter, FILE *file)*/
 		execute(&head, counter);
 		counter++;
