@@ -14,7 +14,7 @@ void _push(stack_t **head, unsigned int line_number)
 
 	if (new_node == NULL)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
+		fprintf(stderr, "Memory allocation failed!\n");
 		exit(EXIT_FAILURE);
 	}
 
