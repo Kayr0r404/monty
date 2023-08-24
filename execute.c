@@ -4,7 +4,7 @@
 * @stack: head linked list - stack
 * Return: no return
 */
-int execute(stack_t **stack)
+int execute(stack_t **stack, unsigned int line_number)
 {
 	instruction_t opst[] = {
 				{"push", _push}, {"pall", _print}, {"pint", _pint},
@@ -13,7 +13,7 @@ int execute(stack_t **stack)
 				{"add", _add},
 				{NULL, NULL}
 				};
-	unsigned int i = 0, counter = 1;
+	unsigned int i = 0;
 	char *op = container.line;
 
 	if (op && op[0] == '#')
@@ -21,14 +21,14 @@ int execute(stack_t **stack)
 	while (opst[i].opcode && op)
 	{
 		if (strcmp(op, opst[i].opcode) == 0)
-		{	opst[i].f(stack, counter);
+		{	opst[i].f(stack, line_number);
 			return (0);
 		}
-		i++, counter++;
+		i++;
 	}
 	if (op && opst[i].opcode == NULL)
-	{ fprintf(stderr, "L%d: unknown instruction %s\n", counter, op);
-		free(container.line);
+	{ fprintf(stderr, "L%d: unknown instruction %s\n", line_number, op);
+		free(container.data);
 		exit(EXIT_FAILURE); }
 	return (1);
 }

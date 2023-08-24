@@ -19,17 +19,25 @@ void _push(stack_t **head, unsigned int line_number)
 	}
 
 	/* Initialize the new node*/
-	new_node->n = container.data;
+	if (container.data == NULL)
+	{
+		fprintf(stderr, "L%i: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
 
-	new_node->prev = NULL;
-	new_node->next = *head;
+		new_node->n = atoi(container.data);
 
-	/* Update the previous node of the current head if it exists*/
-	if (*head != NULL)
-		(*head)->prev = new_node;
+		new_node->prev = NULL;
+		new_node->next = *head;
 
-	/* Update the head to point to the new node*/
-	*head = new_node;
-	(void)line_number;
+		/* Update the previous node of the current head if it exists*/
+		if (*head != NULL)
+			(*head)->prev = new_node;
 
+		/* Update the head to point to the new node*/
+		*head = new_node;
+		(void)line_number;
+	}
 }

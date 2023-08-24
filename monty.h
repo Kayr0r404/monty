@@ -46,7 +46,7 @@ typedef struct container_s
 {
 	char *line;
 	FILE *file;
-	int data;
+	char *data;
 } container_t;
 extern container_t container;
 
@@ -59,7 +59,12 @@ void _pop(stack_t **head, unsigned int line_number);
 void _swap(stack_t **head, unsigned int line_number);
 void _add(stack_t **head, unsigned int line_number);
 size_t list_len(const stack_t *h);
-int execute(stack_t **stack);
+int execute(stack_t **stack, unsigned int line_number);
 int is_number(char *str);
+
+void clean_up(stack_t **head);
+void add_at_tail(stack_t **head, const int data);
+void add_at_head(stack_t **head, const int data);
+void free_stack(stack_t *head);
 
 #endif /*MONTY_H*/

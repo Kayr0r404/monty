@@ -1,5 +1,5 @@
 #include "monty.h"
-container_t container = {NULL, NULL, 1};
+container_t container = {NULL, NULL, NULL};
 /**
  * main - main event
  * @argc: number of arguments
@@ -8,8 +8,9 @@ container_t container = {NULL, NULL, 1};
  */
 int main(int argc, char *argv[])
 {
-	char line[1024], *tmp;
+	char line[1024];
 	stack_t *head = NULL;
+	unsigned int counter = 1;
 
 	if (argc != 2)
 	{
@@ -27,18 +28,13 @@ int main(int argc, char *argv[])
 	while (fgets(line, sizeof(line), container.file) != NULL)
 	{
 		container.line = strtok(line, " \n\t");
-		tmp = strtok(NULL, " \n\t");
-
-		if (tmp != NULL)
-		{
-			container.data = atoi(tmp);
-		}
+		container.data = strtok(NULL, " \n\t");;
 		/*execute(char *content, stack_t **stack, unsigned int counter, FILE *file)*/
-		execute(&head);
+		execute(&head, counter);
+		counter++;
 	}
 
 	fclose(container.file);
 	exit(EXIT_SUCCESS);
-	(void)tmp;
 	(void)head;
 }
