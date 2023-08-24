@@ -15,4 +15,5 @@ void _print(stack_t **h, unsigned int line_number)
 		printf("%i\n", curr->n);
 		curr = curr->next;
 	}
+	(void)line_number;
 }
