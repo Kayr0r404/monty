@@ -11,6 +11,7 @@ void _add(stack_t **head, unsigned int line_number)
 	if (!head || list_len(*head) < 2)
 	{
 		fprintf(stderr, "L%i: can't add, stack too short", line_number);
+		clean_up(head);
 		exit(EXIT_FAILURE);
 	}
 

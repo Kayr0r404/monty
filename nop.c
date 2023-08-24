@@ -6,6 +6,6 @@
 */
 void _nop(stack_t **head, unsigned int line_number)
 {
-	(void)head;
+	clean_up(head);
 	(void)line_number;
 }

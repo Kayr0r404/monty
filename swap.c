@@ -12,6 +12,7 @@ void _swap(stack_t **head, unsigned int line_number)
 	if (list_len(*head) < 2 || *head == NULL)
 	{
 		fprintf(stderr, "L%i: can't swap, stack too short\n", line_number);
+		clean_up(head);
 		exit(EXIT_FAILURE);
 	}
 

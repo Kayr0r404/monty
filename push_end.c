@@ -113,6 +113,7 @@ void clean_up(stack_t **head)
 {
 	free_stack(*head);
 	free(container.line);
+	free(container.data);
 	fclose(container.file);
 	exit(EXIT_FAILURE);
 }

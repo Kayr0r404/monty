@@ -33,8 +33,9 @@ int main(int argc, char *argv[])
 		execute(&head, counter);
 		counter++;
 	}
-
 	fclose(container.file);
-	exit(EXIT_SUCCESS);
+	free(container.line);
+	free(container.data);
 	(void)head;
+	return (0);
 }

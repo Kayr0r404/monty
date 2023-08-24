@@ -16,4 +16,5 @@ void _print(stack_t **h, unsigned int line_number)
 		curr = curr->next;
 	}
 	(void)line_number;
+	free(curr);
 }
