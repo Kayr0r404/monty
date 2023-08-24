@@ -60,6 +60,10 @@ void _pop(stack_t **head, unsigned int line_number);
 void _swap(stack_t **head, unsigned int line_number);
 void _add(stack_t **head, unsigned int line_number);
 void _sub(stack_t **h, unsigned int line_number);
+void _mul(stack_t **head, unsigned int line_number);
+void _div(stack_t **head, unsigned int line_number);
+void _mod(stack_t **head, unsigned int line_number);
+
 size_t list_len(const stack_t *h);
 void _nop(stack_t **head, unsigned int line_number);
 int execute(stack_t **stack, unsigned int line_number);
