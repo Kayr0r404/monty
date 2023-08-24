@@ -33,6 +33,7 @@ int main(int argc, char *argv[])
 		execute(&head, counter);
 		counter++;
 	}
-	(void)head;
+	free_stack(head);
+	
 	return (0);
 }

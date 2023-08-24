@@ -7,14 +7,10 @@
 */
 void _print(stack_t **h, unsigned int line_number)
 {
-	stack_t *curr;
-
-	curr = *h;
-	while (curr != NULL)
+	while (*h != NULL)
 	{
-		printf("%i\n", curr->n);
-		curr = curr->next;
+		printf("%i\n", (*h)->n);
+		*h = (*h)->next;
 	}
 	(void)line_number;
-	free(curr);
 }

@@ -1,11 +1,12 @@
 #include "monty.h"
+
 /**
- * _add - adds the top two elements of the stack.
+ * _sub - adds the top two elements of the stack.
  * @head: input list
  * @line_number: line number on monty file
  *
  */
-void _add(stack_t **head, unsigned int line_number)
+void _sub(stack_t **head, unsigned int line_number)
 {
 
 	stack_t *h;
@@ -21,7 +22,7 @@ void _add(stack_t **head, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	h = *head;
-	h->next->n = h->n + h->next->n;
+	h->next->n = h->n - h->next->n;
 	*head = h->next;
 	free(h);
 }
