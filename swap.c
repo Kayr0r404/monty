@@ -9,16 +9,10 @@ void _swap(stack_t **head, unsigned int line_number)
 	stack_t *curr;
 	int tmp;
 
-	if (head == NULL || !(*head))
-	{
-		fclose(container.file);
-		exit(EXIT_FAILURE);
-	}
-
-	if (list_len(*head) < 2 || *head == NULL)
+	if (head == NULL || !(*head) || list_len(*head) < 2)
 	{
 		fprintf(stderr, "L%i: can't swap, stack too short\n", line_number);
-		clean_up(head);
+		fclose(container.file);
 		exit(EXIT_FAILURE);
 	}
 
