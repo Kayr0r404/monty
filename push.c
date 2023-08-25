@@ -1,4 +1,5 @@
 #include "monty.h"
+
 /**
  * _push - Write a function that adds a new node
  * at the beginning of a  stack_t list.

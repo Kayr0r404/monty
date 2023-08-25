@@ -35,7 +35,6 @@ int main(int argc, char *argv[])
 		counter++;
 	}
 	free_stack(head);
-	free(container.data);
 	fclose(container.file);
 	return (0);
 }

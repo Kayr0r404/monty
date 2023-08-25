@@ -29,7 +29,6 @@ int execute(stack_t **stack, unsigned int line_number)
 	}
 	if (op && opst[i].opcode == NULL)
 	{ fprintf(stderr, "L%d: unknown instruction %s\n", line_number, op);
-		free(container.data);
 		exit(EXIT_FAILURE); }
 	return (1);
 }

@@ -7,16 +7,19 @@
 */
 void _pall(stack_t **h, unsigned int line_number)
 {
-	if (h == NULL || !(*h))
+	stack_t *curr;
+
+	if (h == NULL || !*h)
 	{
 		fclose(container.file);
 		exit(EXIT_FAILURE);
 	}
 
-	while (*h != NULL)
+	curr = *h;
+	while (curr != NULL)
 	{
-		printf("%i\n", (*h)->n);
-		*h = (*h)->next;
+		printf("%i\n", curr->n);
+		curr = curr->next;
 	}
 	(void)line_number;
 }
