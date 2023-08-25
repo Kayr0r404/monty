@@ -1,4 +1,5 @@
 #include "monty.h"
+void nothing(void);
 container_t container = {NULL, NULL, NULL};
 /**
  * main - main event
@@ -33,7 +34,8 @@ int main(int argc, char *argv[])
 		execute(&head, counter);
 		counter++;
 	}
-	fclose(container.file);
 	free_stack(head);
+	free(container.data);
+	fclose(container.file);
 	return (0);
 }

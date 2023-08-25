@@ -20,7 +20,7 @@ void _push(stack_t **head, unsigned int line_number)
 			fclose(container.file);
 			exit(EXIT_FAILURE);
 		}
-		
+
 		/* Initialize the new node*/
 		new_node->n = atoi(container.data);
 
