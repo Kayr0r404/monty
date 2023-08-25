@@ -9,18 +9,19 @@ void _push(stack_t **head, unsigned int line_number)
 {
 	stack_t *new_node;
 
-	/* Create a new node*/
-	new_node = (stack_t *)malloc(sizeof(stack_t));
-
-	if (new_node == NULL)
+	if (is_number(container.data))
 	{
-		fprintf(stderr, "Memory allocation failed!\n");
-		exit(EXIT_FAILURE);
-	}
+		/* Create a new node*/
+		new_node = (stack_t *)malloc(sizeof(stack_t));
 
-	/* Initialize the new node*/
-	else if (is_number(container.data))
-	{
+		if (new_node == NULL)
+		{
+			fprintf(stderr, "Memory allocation failed!\n");
+			fclose(container.file);
+			exit(EXIT_FAILURE);
+		}
+		
+		/* Initialize the new node*/
 		new_node->n = atoi(container.data);
 
 		new_node->prev = NULL;
@@ -37,6 +38,7 @@ void _push(stack_t **head, unsigned int line_number)
 	else
 	{
 		fprintf(stderr, "L%i: usage: push integer\n", line_number);
+		fclose(container.file);
 		exit(EXIT_FAILURE);
 	}
 }

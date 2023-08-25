@@ -33,6 +33,7 @@ int main(int argc, char *argv[])
 		execute(&head, counter);
 		counter++;
 	}
-	clean_up(&head);
+	fclose(container.file);
+	free_stack(head);
 	return (0);
 }
