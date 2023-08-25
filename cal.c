@@ -10,8 +10,10 @@ void _add(stack_t **head, unsigned int line_number)
 
 	stack_t *h;
 
-	if (head == NULL || !(*head))
+	if (head == NULL || !(*head) || list_len(*head))
 	{
+
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		fclose(container.file);
 		exit(EXIT_FAILURE);
 	}
@@ -19,12 +21,6 @@ void _add(stack_t **head, unsigned int line_number)
 	for (; h; )
 		h = h->next;
 
-	if (list_len(*head) < 2)
-	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
-		clean_up(head);
-		exit(EXIT_FAILURE);
-	}
 	h = *head;
 	h->next->n = h->n + h->next->n;
 	*head = h->next;
@@ -41,8 +37,9 @@ void _sub(stack_t **head, unsigned int line_number)
 
 	stack_t *h;
 
-	if (head == NULL || !(*head))
+	if (head == NULL || !(*head) || list_len(*head))
 	{
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
 		fclose(container.file);
 		exit(EXIT_FAILURE);
 	}
@@ -51,12 +48,6 @@ void _sub(stack_t **head, unsigned int line_number)
 	for (; h; )
 		h = h->next;
 
-	if (list_len(*head) < 2)
-	{
-		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
-		clean_up(head);
-		exit(EXIT_FAILURE);
-	}
 	h = *head;
 	h->next->n = h->n - h->next->n;
 	*head = h->next;
@@ -74,8 +65,9 @@ void _div(stack_t **head, unsigned int line_number)
 
 	stack_t *h;
 
-	if (head == NULL || !(*head))
+	if (head == NULL || !(*head) || list_len(*head))
 	{
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
 		fclose(container.file);
 		exit(EXIT_FAILURE);
 	}
@@ -83,12 +75,6 @@ void _div(stack_t **head, unsigned int line_number)
 	for (; h; )
 		h = h->next;
 
-	if (list_len(*head) < 2)
-	{
-		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
-		clean_up(head);
-		exit(EXIT_FAILURE);
-	}
 	h = *head;
 	if (h->n == 0)
 	{
@@ -112,8 +98,9 @@ void _mul(stack_t **head, unsigned int line_number)
 
 	stack_t *h;
 
-	if (head == NULL || !(*head))
+	if (head == NULL || !(*head) || list_len(*head))
 	{
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
 		fclose(container.file);
 		exit(EXIT_FAILURE);
 	}
@@ -121,12 +108,6 @@ void _mul(stack_t **head, unsigned int line_number)
 	for (; h; )
 		h = h->next;
 
-	if (list_len(*head) < 2)
-	{
-		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
-		clean_up(head);
-		exit(EXIT_FAILURE);
-	}
 	h = *head;
 	h->next->n = h->n * h->next->n;
 	*head = h->next;
@@ -144,8 +125,9 @@ void _mod(stack_t **head, unsigned int line_number)
 
 	stack_t *h;
 
-	if (head == NULL || !(*head))
+	if (head == NULL || !(*head) || list_len(*head))
 	{
+		fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
 		fclose(container.file);
 		exit(EXIT_FAILURE);
 	}
@@ -153,12 +135,6 @@ void _mod(stack_t **head, unsigned int line_number)
 	for (; h; )
 		h = h->next;
 
-	if (list_len(*head) < 2)
-	{
-		fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
-		clean_up(head);
-		exit(EXIT_FAILURE);
-	}
 	h = *head;
 	if (h->n == 0)
 	{

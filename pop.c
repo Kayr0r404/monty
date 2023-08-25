@@ -6,15 +6,16 @@
  */
 void _pop(stack_t **head, unsigned int line_number)
 {
-	stack_t *curr;
+	stack_t *h;
 
-	if (*head == NULL)
+	if (*head == NULL || !head)
 	{
-		fprintf(stderr, "L%i: can't pop an empty stack\n", line_number);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		fclose(container.file);
 		exit(EXIT_FAILURE);
 	}
-	curr = (*head)->next;
-	curr->prev = NULL;
-	free(*head);
-	*head = curr;
+
+	h = *head;
+	*head = h->next;
+	free(h);
 }
