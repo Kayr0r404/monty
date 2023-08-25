@@ -10,7 +10,7 @@ void _add(stack_t **head, unsigned int line_number)
 
 	stack_t *h;
 
-	if (head == NULL || !(*head) || list_len(*head))
+	if (head == NULL || !(*head) || list_len(*head) < 2)
 	{
 
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
@@ -37,7 +37,7 @@ void _sub(stack_t **head, unsigned int line_number)
 
 	stack_t *h;
 
-	if (head == NULL || !(*head) || list_len(*head))
+	if (head == NULL || !(*head) || list_len(*head) < 2)
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
 		fclose(container.file);
@@ -49,7 +49,7 @@ void _sub(stack_t **head, unsigned int line_number)
 		h = h->next;
 
 	h = *head;
-	h->next->n = h->n - h->next->n;
+	h->next->n = h->next->n - h->n;
 	*head = h->next;
 	free(h);
 }
@@ -65,7 +65,7 @@ void _div(stack_t **head, unsigned int line_number)
 
 	stack_t *h;
 
-	if (head == NULL || !(*head) || list_len(*head))
+	if (head == NULL || !(*head) || list_len(*head) < 2)
 	{
 		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
 		fclose(container.file);
@@ -79,10 +79,10 @@ void _div(stack_t **head, unsigned int line_number)
 	if (h->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", line_number);
-		clean_up(head);
+		fclose(container.file);
 		exit(EXIT_FAILURE);
 	}
-	h->next->n = h->n / h->next->n;
+	h->next->n = h->next->n / h->n;
 	*head = h->next;
 	free(h);
 }
@@ -98,7 +98,7 @@ void _mul(stack_t **head, unsigned int line_number)
 
 	stack_t *h;
 
-	if (head == NULL || !(*head) || list_len(*head))
+	if (head == NULL || !(*head) || list_len(*head) < 2)
 	{
 		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
 		fclose(container.file);
@@ -125,7 +125,7 @@ void _mod(stack_t **head, unsigned int line_number)
 
 	stack_t *h;
 
-	if (head == NULL || !(*head) || list_len(*head))
+	if (head == NULL || !(*head) || list_len(*head) < 2)
 	{
 		fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
 		fclose(container.file);
@@ -139,10 +139,10 @@ void _mod(stack_t **head, unsigned int line_number)
 	if (h->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", line_number);
-		clean_up(head);
+		fclose(container.file);
 		exit(EXIT_FAILURE);
 	}
-	h->next->n = h->n % h->next->n;
+	h->next->n = h->next->n % h->n;
 	*head = h->next;
 	free(h);
 }
