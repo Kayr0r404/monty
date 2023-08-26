@@ -6,8 +6,6 @@
 */
 void _pchar(stack_t **head, unsigned int line)
 {
-	stack_t *curr;
-
 	if (head == NULL || !(*head))
 	{
 		fprintf(stderr, "L%i: can't pchar, stack empty\n", line);
@@ -15,19 +13,12 @@ void _pchar(stack_t **head, unsigned int line)
 		exit(EXIT_FAILURE);
 	}
 
-	curr = *head;
-	while (curr != NULL)
+	if ((*head)->n < 0 || (*head)->n > 127)
 	{
-		int i = curr->n;
-
-		if ((i < 65 || i > 90) && (i < 97 || i > 122))
-		{
-			fprintf(stderr, "L%i: can't pchar, value out of range\n", line);
-			fclose(container.file);
-			free_stack(*head);
-			exit(EXIT_FAILURE);
-		}
-		fprintf(stdout, "%c\n", i);
-		curr = curr->next;
+		fprintf(stderr, "L%i: can't pchar, value out of range\n", line);
+		fclose(container.file);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
 	}
+	fprintf(stdout, "%c", (*head)->n);
 }
