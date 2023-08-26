@@ -10,7 +10,6 @@ void _pstr(stack_t **head, unsigned int line)
 
 	if (head == NULL || !(*head))
 	{
-		fprintf(stderr, "\n");
 		return;
 	}
 
