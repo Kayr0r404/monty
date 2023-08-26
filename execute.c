@@ -10,9 +10,8 @@ int execute(stack_t **stack, unsigned int line_number)
 	instruction_t opst[] = {
 		{"push", _push}, {"pall", _pall}, {"pint", _pint}, {"pop", _pop},
 		{"swap", _swap}, {"add", _add}, {"nop", _nop}, {"sub", _sub},
-		{"div", _div}, {"mul", _mul},
-		{"mod", _mod},
-		{NULL, NULL}
+		{"div", _div}, {"mul", _mul}, {"mod", _mod}, {"pchar", _pchar},
+		{"pstr", _pstr}, {NULL, NULL}
 				};
 	unsigned int i = 0;
 	char *op = container.line;
