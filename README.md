@@ -119,3 +119,6 @@ julien@ubuntu:~/monty$
 
 ## Author
 [Mahlare Karabo](https://github.com/Kayr0r404/monty/)
+<br>
+[![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/karabo-mahlare/)
+

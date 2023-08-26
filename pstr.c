@@ -10,8 +10,12 @@ void _pstr(stack_t **head, unsigned int line)
 
 	if (head == NULL || !(*head))
 	{
+<<<<<<< HEAD
 		fprintf(stderr, "\n");
         return;
+=======
+		return;
+>>>>>>> f626dc9e298a0fccf86743c461db8e127b20c8b5
 	}
 
 	curr = *head;
