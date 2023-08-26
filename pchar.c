@@ -20,5 +20,5 @@ void _pchar(stack_t **head, unsigned int line)
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	fprintf(stdout, "%c", (*head)->n);
+	fprintf(stdout, "%c\n", (*head)->n);
 }
