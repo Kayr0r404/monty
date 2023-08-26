@@ -68,6 +68,8 @@ size_t list_len(const stack_t *h);
 void _nop(stack_t **head, unsigned int line_number);
 int execute(stack_t **stack, unsigned int line_number);
 ssize_t getline(char **lineptr, size_t *n, FILE *stream);
+void _pchar(stack_t **head, unsigned int line);
+void _pstr(stack_t **head, unsigned int line);
 
 
 void clean_up(stack_t **head);
