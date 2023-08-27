@@ -6,27 +6,18 @@
 */
 void _pstr(stack_t **head, unsigned int line)
 {
-	stack_t *curr;
-
-	if (head == NULL || !(*head))
-	{
-		return;
-	}
-
-	curr = *head;
-	while (curr != NULL)
-	{
-		int i = curr->n;
-
-		if (i <= 0 || i > 127)
-		{
-			printf("\n");
-			return;
-		}
-
-		printf("%c", curr->n);
-		curr = curr->next;
-	}
-
+	stack_t *h;
 	(void)line;
+
+	h = *head;
+	while (h)
+	{
+		if (h->n > 127 || h->n <= 0)
+		{
+			break;
+		}
+		printf("%c", h->n);
+		h = h->next;
+	}
+	printf("\n");
 }
