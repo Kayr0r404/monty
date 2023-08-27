@@ -20,8 +20,7 @@ void _pstr(stack_t **head, unsigned int line)
 
 		if (i <= 0 || i > 127)
 		{
-			printf("\n");
-			return;
+			break;
 		}
 
 		printf("%c", curr->n);
