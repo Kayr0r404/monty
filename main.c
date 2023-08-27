@@ -1,6 +1,6 @@
 #include "monty.h"
 void nothing(void);
-container_t container = {NULL, NULL, NULL};
+container_t container = {NULL, NULL, NULL, 0};
 /**
  * main - main event
  * @argc: number of arguments
