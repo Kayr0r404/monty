@@ -11,7 +11,8 @@ void _pall(stack_t **h, unsigned int line_number)
 
 	if (h == NULL || !*h)
 	{
-		return;
+		fclose(container.file);
+		exit(EXIT_FAILURE);
 	}
 
 	curr = *h;
